@@ -1,7 +1,9 @@
 package com.xyz.restfulwebservices.helloWorld;
-
-import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.GetExchange;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+//import org.springframework.web.service.annotation.GetExchange;
 
 //REST API
 @RestController
@@ -18,8 +20,10 @@ public class HelloWorldController {
         return new HelloWorldBean("Hello World");
     }
 
+
     @GetMapping("/hello-world/path-variable/{name}")
     public HelloWorldBean helloWorldPathVariable(@PathVariable String name){
         return new HelloWorldBean(String.format("Hello World, %S", name));
     }
 }
+
